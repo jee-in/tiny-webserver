@@ -9,7 +9,7 @@ int main(void) {
    char arg1[MAXLINE], arg2[MAXLINE], content[MAXLINE];
    int n1 = 0, n2 = 0;
 
-   //Extract the two arguments
+   /* Extract the two arguments */
    if ((buf = getenv("QUERY_STRING")) != NULL) {
       p = strchr(buf, '&');
       *p = '\0';
@@ -19,7 +19,7 @@ int main(void) {
       n2 = atoi(arg2);
    }
 
-   //Make the response body
+   /* Make the response body */
    sprintf(content, "QUERY_STRING=%s", buf);
    sprintf(content, "Welcome to add.com: ");
    sprintf(content, "%sTHE Internet addition portal.\r\n<p>", content);
@@ -27,7 +27,7 @@ int main(void) {
       content, n1, n2, n1 + n2);
    sprintf(content, "%sThanks for visiting!\r\n", content);
 
-   //Generate the HTTP response
+   /* Generate the HTTP response */
    printf("Connection: close\r\n");
    printf("Content-length: %d\r\n", (int)strlen(content));
    printf("Content-type: text/html\r\n\r\n");
